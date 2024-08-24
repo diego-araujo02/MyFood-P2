@@ -11,9 +11,9 @@ expect "4.40" getProduto nome="Refrigerante de laranja" empresa=${e2} atributo="
 expect "bebida" getProduto nome="Refrigerante de laranja" empresa=${e2} atributo="categoria"
 expect "Pastelaria do Roberto" getProduto nome="Refrigerante de laranja" empresa=${e2} atributo="empresa"
 
-expect {Refrigerante de laranja} listarProdutos empresa=${e2}
-expect {Sorvete morango, Refrigerante} listarProdutos empresa=${e1}
-expect {} listarProdutos empresa=${e3}
+expect "{[Refrigerante de laranja]}" listarProdutos empresa=${e2}
+expect "{[Sorvete morango, Refrigerante]}" listarProdutos empresa=${e1}
+expect "{[]}" listarProdutos empresa=${e3}
 
 encerrarSistema
 quit

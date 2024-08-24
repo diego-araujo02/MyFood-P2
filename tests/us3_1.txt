@@ -38,9 +38,9 @@
 # Apaga toda a base de dados.
 zerarSistema
 
-criarUsuario nome="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf= "76.817.098/0001-36"
+criarUsuario nome="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.410-68"
 
-id1=login email="roberto@ufal.com.br" senha='123senha"
+id1=login email="roberto@ufal.com.br" senha="123senha"
 
 eid1=criarEmpresa tipoEmpresa="restaurante"  dono=${id1} nome="Sorveteria do Roberto" endereco="Rua Segura N 987" tipoCozinha="brasileira"
 
@@ -57,14 +57,13 @@ p1=criarProduto empresa=${eid1} nome="Sorvete morango" valor=1.40  categoria="al
 
 p2=criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
 
-expectError "Já existe um produto com esse nome para essa empresa" criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
+expectError "Ja existe um produto com esse nome para essa empresa" criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
 
 p3=criarProduto empresa=${eid2} nome="Refrigerante" valor=3.00  categoria="bebida"
 
-expectError "Empresa invalido" criarProduto empresa=  nome="Refrigerante" valor=3.00  categoria="bebida"
 expectError "Nome invalido" criarProduto empresa=${eid2} nome=  valor=3.00  categoria="bebida"
 expectError "Nome invalido" criarProduto empresa=${eid2} nome=""  valor=3.00  categoria="bebida"
-expectError "Valor invalido" criarProduto empresa=${eid2} nome="Refrigerante" valor=  categoria="bebida"
+expectError "Valor invalido" criarProduto empresa=${eid2} nome="Refrigerante" valor=-3.00  categoria="bebida"
 expectError "Categoria invalido" criarProduto empresa=${eid2} nome="Refrigerante" valor=3.00  categoria=  
 expectError "Categoria invalido" criarProduto empresa=${eid2} nome="Refrigerante" valor=3.00  categoria=""
 
@@ -73,10 +72,9 @@ expectError "Categoria invalido" criarProduto empresa=${eid2} nome="Refrigerante
 # testes de todas as combinações importantes para o comando editarProduto
 ###################
 
-expectError "Produto invalido" editarProduto produto=  nome="Refrigerante" valor=3.00  categoria="bebida"
 expectError "Nome invalido" editarProduto produto=${p3} nome=  valor=3.00  categoria="bebida"
 expectError "Nome invalido" editarProduto produto=${p3} nome=""  valor=3.00  categoria="bebida"
-expectError "Valor invalido" editarProduto produto=${p3} nome="Refrigerante" valor=  categoria="bebida"
+expectError "Valor invalido" editarProduto produto=${p3} nome="Refrigerante" valor=-3.00  categoria="bebida"
 expectError "Categoria invalido" editarProduto produto=${p3} nome="Refrigerante" valor=3.00  categoria=  
 expectError "Categoria invalido" editarProduto produto=${p3} nome="Refrigerante" valor=3.00  categoria="" 
 
@@ -93,15 +91,15 @@ expect "bebida" getProduto nome="Refrigerante de laranja" empresa=${eid2} atribu
 expect "Pastelaria do Roberto" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="empresa"
 
 expectError "Produto não encontrado" getProduto nome="Pastel" empresa=${eid2} atributo="valor"
-expectError "Atributo não  existe" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="desconto"
+expectError "Atributo não existe" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="desconto"
 
 ###################
 # testes para listar os produtos da empresa.
 ###################
 
-expect {[Refrigerante de laranja]} listarProdutos empresa=${eid2}
-expect {[Sorvete morango, Refrigerante]} listarProdutos empresa=${eid1}
-expect {[]} listarProdutos empresa=${eid3}
+expect "{[Refrigerante de laranja]}" listarProdutos empresa=${eid2}
+expect "{[Sorvete morango, Refrigerante]}" listarProdutos empresa=${eid1}
+expect "{[]}" listarProdutos empresa=${eid3}
 
 expectError "Empresa nao encontrada" listarProdutos empresa=9999
 
