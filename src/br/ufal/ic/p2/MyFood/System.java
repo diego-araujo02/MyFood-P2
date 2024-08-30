@@ -1,6 +1,5 @@
 package br.ufal.ic.p2.MyFood;
 
-public class Facade {
-
+public final class System {
 
 }
