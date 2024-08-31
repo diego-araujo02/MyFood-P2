@@ -4,9 +4,9 @@ id1=login email="lucas@ufal.com.br" senha="123senha"
 id2=login email="carlos@ufal.com.br" senha="123senha"
 id3=login email="roberto@ufal.com.br" senha="123senha"
 
-e1=getIdEmpresa idDono=${id3} nome="Sorveteria do Roberto" indice=0
+e1=getIdEmpresa idDono=${id3} name="Sorveteria do Roberto" indice=0
 
-expect "Sorveteria do Roberto" getAtributoEmpresa empresa=${e1} atributo="nome"
+expect "Sorveteria do Roberto" getAtributoEmpresa empresa=${e1} atributo="name"
 expect "Rua Segura N 987" getAtributoEmpresa empresa=${e1} atributo="endereco"
 expect "brasileira" getAtributoEmpresa empresa=${e1} atributo="tipoCozinha"
 expect "RobertoDono" getAtributoEmpresa empresa=${e1} atributo="dono"

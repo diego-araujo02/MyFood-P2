@@ -37,7 +37,7 @@
 # retorno:  Sem retorno
 #
 # removerProduto(int  pedido, String produto)
-# descrição:  Remove um produto adicionado com esse nome, mantém outros caso com o mesmo nome.
+# descrição:  Remove um produto adicionado com esse name, mantém outros caso com o mesmo name.
 # retorno: Sem retorno
 #
 # encerrarSistema
@@ -48,20 +48,20 @@
 # Apaga toda a base de dados.
 zerarSistema
 
-criarUsuario nome="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf= "76.817.098/0001-36"
+criarUsuario name="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf= "76.817.098/0001-36"
 id1=login email="roberto@ufal.com.br" senha="123senha"
 
-e1=criarEmpresa tipoEmpresa="restaurante"  dono=${id1} nome="Sorveteria do Roberto" endereco="Rua Segura N 987" tipoCozinha="brasileira"
+e1=criarEmpresa tipoEmpresa="restaurante"  dono=${id1} name="Sorveteria do Roberto" endereco="Rua Segura N 987" tipoCozinha="brasileira"
 
-e2=criarEmpresa tipoEmpresa="restaurante"  dono=${id1} nome="Pastelaria do Roberto" endereco="Rua Segura N 987" tipoCozinha="brasileira"
+e2=criarEmpresa tipoEmpresa="restaurante"  dono=${id1} name="Pastelaria do Roberto" endereco="Rua Segura N 987" tipoCozinha="brasileira"
 
-p1=criarProduto empresa=${e1} nome="Sorvete morango" valor=1.40  categoria="alimento"
-p2=criarProduto empresa=${e1} nome="Sorvete chocolate" valor=1.40  categoria="alimento"
-p3=criarProduto empresa=${e1} nome="Refrigerante" valor=3.40  categoria="bebida"
+p1=criarProduto empresa=${e1} name="Sorvete morango" valor=1.40  categoria="alimento"
+p2=criarProduto empresa=${e1} name="Sorvete chocolate" valor=1.40  categoria="alimento"
+p3=criarProduto empresa=${e1} name="Refrigerante" valor=3.40  categoria="bebida"
 
-p4=criarProduto empresa=${e2} nome="Pastel de queijo" valor=5.00  categoria="alimento"
+p4=criarProduto empresa=${e2} name="Pastel de queijo" valor=5.00  categoria="alimento"
 
-criarUsuario nome="Carlos" email="carlos@ufal.com.br"  senha="123senha" endereco= "Rua Exemplo N 123"
+criarUsuario name="Carlos" email="carlos@ufal.com.br"  senha="123senha" endereco= "Rua Exemplo N 123"
 
 id2=login email="carlos@ufal.com.br" senha="123senha"
 
