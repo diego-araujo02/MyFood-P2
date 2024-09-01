@@ -12,7 +12,6 @@ public abstract class User {
         this.name = name;
         this.email = email;
         this.senha = senha;
-        System.out.println("hello");
     }
     public abstract String getCpf();
 

@@ -1,18 +1,15 @@
 import br.ufal.ic.p2.MyFood.Customer;
+import br.ufal.ic.p2.MyFood.SystemMyFood;
 import br.ufal.ic.p2.MyFood.XML;
+import br.ufal.ic.p2.MyFood.XMLUser;
 import easyaccept.EasyAccept;
 
 public class Main {
     public static void main(String[] args) {
         String filePathUsers = "src/br/ufal/ic/p2/MyFood/data/users.xml";
         String rootNameUsers = "users";
-        String filePathPedidos = "src/br/ufal/ic/p2/MyFood/data/pedidos.xml";
-        String rootNamePedidos = "pedidos";
 
-        XML xmlUsers = new XML(filePathUsers, rootNameUsers);
-        XML xmlPedidos = new XML(filePathPedidos, rootNamePedidos);
-
-        XML.loadCurrentId(xmlUsers);
+        SystemMyFood system = new SystemMyFood(filePathUsers, rootNameUsers);
 
         String[] args2 = {"br.ufal.ic.p2.MyFood.Facade",
                 "tests/us1_1.txt", "tests/us1_2.txt",

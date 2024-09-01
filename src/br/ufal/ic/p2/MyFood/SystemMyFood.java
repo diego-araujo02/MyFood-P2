@@ -3,19 +3,23 @@ package br.ufal.ic.p2.MyFood;
 import java.io.File;
 import java.util.ArrayList;
 
-public final class SystemMyFood {
+public class SystemMyFood {
+    private XMLUser xmlUser;
 
-    public User criarUsuario(String nome, String email, String senha, String endereco, String cpf){
+    public SystemMyFood(String filePathUsers, String rootNameUsers) {
+        this.xmlUser = new XMLUser(filePathUsers, rootNameUsers);
+        XML.loadCurrentId(xmlUser);
+    }
+    public void criarUsuario(String name, String email, String senha, String endereco, String cpf){
         User.setCurrentId(User.getCurrentId() + 1);
-        if (!cpf.isEmpty()){
-            return new Owner(nome, email, senha, endereco, cpf);
-        } else {
-            return new Customer(nome, email, senha, endereco);
-        }
+        User user = new Owner(name, email, senha, endereco, cpf);
+        xmlUser.addUser("owner", user);
     }
 
-    public void addUserToXML(User user){
-
+    public void criarUsuario(String name, String email, String senha, String endereco){
+        User.setCurrentId(User.getCurrentId() + 1);
+        User user = new Customer(name, email, senha, endereco);
+        xmlUser.addUser("customer", user);
     }
 
     public void zerarSistema() {
@@ -26,7 +30,7 @@ public final class SystemMyFood {
         for (String filePath : filePaths){
             File xmlfFile = new File(filePath);
             if (xmlfFile.exists()){
-                XML.clearXML(filePath);
+                xmlUser.clearXML();
             }
         }
     }
