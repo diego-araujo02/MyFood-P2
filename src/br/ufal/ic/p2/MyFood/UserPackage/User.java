@@ -1,21 +1,22 @@
-package br.ufal.ic.p2.MyFood;
+package br.ufal.ic.p2.MyFood.UserPackage;
 
 public abstract class User {
     private int id;
     private String name;
-    private String email;
+    public String email;
     private String senha;
+    private String endereco;
     private static int currentId;
 
-    public User(String name, String email, String senha) {
+    public User(String name, String email, String senha, String endereco) {
         this.id = currentId;
         this.name = name;
         this.email = email;
         this.senha = senha;
+        this.endereco = endereco;
     }
-    public abstract String getCpf();
 
-    public abstract String getEndereco();
+    public abstract boolean isOwner();
 
     public static int getCurrentId() {
         return currentId;
@@ -55,5 +56,9 @@ public abstract class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 }

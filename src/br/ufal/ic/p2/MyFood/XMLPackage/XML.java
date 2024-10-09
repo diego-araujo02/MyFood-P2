@@ -1,5 +1,6 @@
-package br.ufal.ic.p2.MyFood;
+package br.ufal.ic.p2.MyFood.XMLPackage;
 
+import br.ufal.ic.p2.MyFood.UserPackage.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
@@ -69,19 +70,7 @@ public abstract class XML {
         }
     }
 
-    public void clearXML() {
-        try {
-            if (doc != null) {
-                Element root = doc.getDocumentElement();
-                while (root.hasChildNodes()) {
-                    root.removeChild(root.getFirstChild());
-                }
-                saveXML();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    public abstract void clearXML();
 
     public static void loadCurrentId(XML xml) {
         Document doc = xml.getDocument();
@@ -89,7 +78,7 @@ public abstract class XML {
 
         String lastIdStr = rootElement.getAttribute("lastId");
         if (lastIdStr != null && !lastIdStr.isEmpty()) {
-            User.setCurrentId(Integer.parseInt(lastIdStr));
+            User.setCurrentId(Integer.parseInt(lastIdStr) + 1);
         } else {
             User.setCurrentId(0);
         }

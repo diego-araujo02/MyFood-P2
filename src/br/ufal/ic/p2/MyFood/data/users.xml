@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users lastId="1">
+    <customer>
+        <id>0</id>
+        <name>Carlos</name>
+        <email>carlos@ufal.com.br</email>
+        <senha>123senha</senha>
+        <endereco>Rua Exemplo N 123</endereco>
+    </customer>
+    <owner>
+        <id>1</id>
+        <name>CarlosDono</name>
+        <email>carlos2@ufal.com.br</email>
+        <senha>123senha</senha>
+        <endereco>Rua Exemplo N 321</endereco>
+        <cpf>544.732.410-68</cpf>
+    </owner>
+</users>
